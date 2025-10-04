@@ -1,0 +1,15 @@
+# -- General --
+width=550
+height=450
+prompt=Search Apps...
+style=./style.css
+
+# -- Appearance --
+location=center
+allow_images=true
+hide_scroll=true
+show_all=true
+
+# -- Behavior --
+insensitive=true
+parse_search=true

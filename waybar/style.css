@@ -1,0 +1,164 @@
+* {
+    /* `otf-font-awesome` is required for icons */
+    font-family: "JetBrainsMono Nerd Font", FontAwesome, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+window#waybar {
+    /* To achieve the blur effect, the background color must have transparency */
+    background-color: rgba(255, 255, 255, 0);
+    /* The backdrop-filter property applies the blur */
+    /*backdrop-filter: blur(12px);*/
+    /*border: 1px solid rgba(205, 214, 244, 0.4);*/
+    /*border-radius: 20px;*/
+    color: #cdd6f4; /* Text color */
+    transition-property: background-color;
+    transition-duration: 0.5s;
+}
+
+/* -----------------------------------------------------
+ * Modules
+ * ----------------------------------------------------- */
+
+/* General module styles */
+#workspaces,
+#clock,
+#battery,
+#pulseaudio,
+#network,
+#cpu,
+#memory,
+#tray,
+#custom-launcher,
+#custom-power {
+    background-color: rgba(30, 30, 46, 0.7);
+    padding: 2px 15px;
+    margin: 5px 0px;
+    border-radius: 15px;
+    border: 1px solid transparent;
+}
+
+/* Add margin to the last module on the right */
+#custom-power {
+    margin-right: 8px;
+}
+
+/* Add margin to the first module on the left */
+#custom-launcher {
+    margin-left: 8px;
+    padding: 2px 16px 2px 14px;
+}
+
+/* -----------------------------------------------------
+ * Workspaces
+ * ----------------------------------------------------- */
+
+#workspaces {
+    background-color: rgba(30, 30, 46, 0.7);
+    padding: 0;
+}
+
+#workspaces button {
+    padding: 2px 5px;
+    color: #a6adc8; /* Subdued color for inactive workspaces */
+    border-radius: 15px;
+    min-width: 25px;
+    transition: all 0.3s ease-in-out;
+}
+
+#workspaces button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #cdd6f4;
+}
+
+#workspaces button.active {
+    background-color: #89b4fa; /* A bright accent color */
+    color: #1e1e2e; /* Dark text for contrast */
+}
+
+#workspaces button.urgent {
+    background-color: #f38ba8; /* Red for urgent notifications */
+    color: #1e1e2e;
+}
+
+/* -----------------------------------------------------
+ * Individual Modules
+ * ----------------------------------------------------- */
+
+#clock {
+    color: #fab387; /* Orange */
+}
+
+#battery {
+    color: #a6e3a1; /* Green */
+}
+
+#battery.charging,
+#battery.plugged {
+    color: #a6e3a1;
+}
+
+@keyframes blink {
+    to {
+        background-color: #f38ba8; /* Red */
+        color: #1e1e2e;
+    }
+}
+
+#battery.critical:not(.charging) {
+    color: #f38ba8;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#pulseaudio {
+    color: #89b4fa; /* Blue */
+}
+
+#pulseaudio.muted {
+    color: #6c7086;
+}
+
+#network {
+    color: #f5c2e7; /* Pink */
+}
+
+#network.disconnected {
+    color: #f38ba8; /* Red */
+}
+
+#cpu {
+    color: #f9e2af; /* Yellow */
+}
+
+#memory {
+    color: #b4befe; /* Lavender */
+}
+
+#tray {
+    padding: 2px 10px;
+}
+
+#custom-power {
+    color: #f38ba8;
+    margin-right: 8px;
+}
+
+#custom-launcher {
+    color: #cba6f7;
+}
+
+/* Tooltip style */
+tooltip {
+    background: rgba(30, 30, 46, 0.9);
+    border: 1px solid #7f849c;
+    border-radius: 10px;
+}
+
+tooltip label {
+    color: #cdd6f4;
+}

@@ -1,0 +1,73 @@
+* {
+    font-family: "JetBrainsMono Nerd Font", FontAwesome, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+window {
+    /* The blur effect requires a transparent background */
+    background-color: rgba(26, 27, 38, 0.85);
+    /* The magic blur property */
+    /*backdrop-filter: blur(12px);*/
+    border-radius: 20px;
+    border: 1px solid rgba(205, 214, 244, 0.4);
+}
+
+/* -----------------------------------------------------
+ * Input Bar
+ * ----------------------------------------------------- */
+
+#input {
+    background-color: rgba(30, 30, 46, 0.8);
+    color: #cdd6f4; /* Text color */
+    border: none;
+    border-radius: 15px;
+    padding: 12px 15px;
+    margin: 20px;
+    margin-bottom: 10px;
+    outline: none; /* Removes the default focus outline */
+}
+
+/* -----------------------------------------------------
+ * List View
+ * ----------------------------------------------------- */
+
+#outer-box {
+    margin: 0px 20px;
+    padding-bottom: 20px;
+}
+
+#scroll {
+    /* No specific styles needed for the scroll area itself */
+}
+
+/* -----------------------------------------------------
+ * List Entries
+ * ----------------------------------------------------- */
+
+#entry {
+    padding: 10px;
+    border-radius: 12px;
+    transition: all 0.2s ease-in-out;
+}
+
+#entry:selected {
+    background-color: #89b4fa; /* Blue accent color */
+    color: #1e1e2e; /* Dark text for contrast */
+}
+
+#entry image {
+    margin-right: 12px;
+}
+
+#entry:selected image {
+    /* No change needed, icons look good on the blue background */
+}
+
+#text {
+    color: #cdd6f4;
+}
+
+#entry:selected #text {
+    color: #1e1e2e; /* Ensure text color changes on selection */
+}
