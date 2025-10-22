@@ -1,0 +1,156 @@
+@import url("/home/phanthm/.cache/wal/colors-waybar.css");
+
+* {
+    font-family: "JetBrainsMono Nerd Font", FontAwesome, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+window#waybar {
+    background-color: rgba(255, 255, 255, 0);
+    transition-property: background-color;
+    transition-duration: 0.5s;
+}
+
+#workspaces,
+#clock,
+#battery,
+#pulseaudio,
+#network,
+#cpu,
+#memory,
+#tray,
+#custom-launcher,
+#backlight,
+#custom-power {
+    padding: 0px 7px;
+    margin: 5px 0px;
+    min-width: 25px;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    background-color: @background;
+}
+
+#custom-power {
+    margin-right: 8px;
+}
+
+#custom-launcher {
+    margin-left: 8px;
+}
+
+#custom-launcher {
+    color: @foreground;
+    background-color: @background;
+    transition: all 0.3s ease-in-out;
+}
+
+#custom-launcher:hover {
+    color: @background;
+    background-color: @foreground;
+}
+
+#workspaces {
+    padding: 0;
+    background-color: @background;
+}
+
+#workspaces button {
+    padding: 0px 5px;
+    min-width: 25px;
+    transition: all 0.3s ease-in-out;
+    color: @foreground;
+}
+
+#workspaces button.active {
+    background-color: @color2;
+}
+
+#workspaces button.urgent {
+    background-color: @color1;
+}
+
+#workspaces button:not(.active):hover {
+    background-color: @foreground;
+    color: @background;
+}
+
+#clock {
+    color: @foreground;
+}
+
+#backlight {
+    color: #a6e3a1;
+}
+
+#battery {
+    color: @color15;
+    background-color: @background;
+}
+
+#battery.charging,
+#battery.plugged {
+    color: #1e1e2e;
+    background-color: #a6e3a1;
+}
+
+#battery.warning:not(.charging) {
+    color: #1e1e2e;
+    background-color: #fab387;
+}
+
+#battery.critical:not(.charging) {
+    color: #1e1e2e;
+    background-color: #f38ba8;
+}
+
+#pulseaudio {
+    color: #89b4fa;
+}
+
+#pulseaudio.muted {
+    color: #6c7086;
+}
+
+#network {
+    color: #f5c2e7;
+    font-size: 12px;
+}
+
+#network.disconnected {
+    color: #f38ba8;
+}
+
+#cpu {
+    color: #f9e2af;
+}
+
+#memory {
+    color: #b4befe;
+}
+
+#tray {
+    padding: 2px 5px;
+}
+
+#custom-power {
+    margin-right: 8px;
+    transition: all 0.3s ease-in-out;
+    color: #f38ba8;
+    background-color: @background;
+}
+
+#custom-power:hover {
+    background-color: #f38ba8;
+    color: #1e1e2e;
+}
+
+tooltip {
+    border-radius: 7px;
+    background: @color1;
+    border: 1px solid @color15;
+}
+
+tooltip label {
+    color: @foreground;
+}
