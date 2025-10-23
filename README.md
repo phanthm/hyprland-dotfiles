@@ -1,2 +1,2 @@
 hyprpaper wlogout wofi pavucontrol dunst 
-pywal
+pywal nsxiv

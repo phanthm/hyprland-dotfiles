@@ -1,0 +1,167 @@
+# ~/.config/dunst/dunstrc
+#
+# A modern, clean dunstrc configuration (Warnings Fixed)
+
+[global]
+    ### Display ###
+    # Which monitor to display notifications on. 0 = default.
+    monitor = 0
+
+    # 'mouse' will display notifications on the monitor with the mouse.
+    # 'origin' will display notifications on the monitor specified by 'origin'.
+    follow = mouse
+
+    ### Geometry ###
+    # The geometry of the notification window
+
+    # Position (top-left, top-center, top-right, bottom-left, bottom-center, bottom-right)
+    origin = top-center
+
+    # Offset from the screen edge (new syntax)
+    offset = (0, 5)
+
+    # Width of the notification window
+    width = 340
+
+    # Notification height (new syntax)
+    # (0, X) means dynamic height with a max of X.
+    # (X, X) would mean a fixed height of X.
+    height = (0, 200)
+
+    # Don't show more than 5 notifications at once.
+    # New notifications will be queued.
+    notification_limit = 5
+
+    ### Appearance ###
+    # Rounded corners
+    corner_radius = 5
+
+    # Frame and separator settings
+    frame_width = 5
+    separator_height = 5
+
+    # Padding
+    padding = 10
+    horizontal_padding = 10
+
+    # Transparency (0-100)
+    transparency = 20
+
+    ### Text ###
+    # Font. Using a Nerd Font is highly recommended for icon glyphs.
+    font = JetBrainsMono Nerd Font 10
+
+    # Text alignment (left, center, right)
+    alignment = left
+
+    # Format of the notification content
+    # %a = appname, %s = summary, %b = body, %I = icon path, %p = progress
+    format = "<b>%s</b>\n%b"
+
+    # Allow markup (bold, italic, etc.)
+    markup = full
+
+    # Word wrapping
+    word_wrap = yes
+    ellipsize = middle
+
+    ### Icons ###
+    # Icon position (left, right, off)
+    icon_position = left
+
+    # Max icon size
+    max_icon_size = 32
+
+    # Path to default icons
+    icon_path = /home/phanthm/.local/share/icons/dunst
+
+    ### History ###
+    # Show how many notifications are hidden
+    indicate_hidden = yes
+
+    # Sort notifications by urgency, then time
+    sort = yes
+
+    ### Behavior ###
+    # Don't dim notifications when idle
+    idle_threshold = 0
+
+    # Show age of notification after 60 seconds
+    show_age_threshold = 60
+
+    # Close notification on middle click
+    mouse_middle_click = close_current
+
+    # Act on notification on left click
+    mouse_left_click = do_action
+
+    # Close all notifications on right click
+    mouse_right_click = close_all
+
+    # Ignore newlines
+    ignore_newline = no
+
+    # Stack duplicate notifications
+    stack_duplicates = true
+    hide_duplicate_count = false
+
+    # Show indicators for actions (e.g., [A]ction)
+    show_indicators = yes
+
+    ### Progress Bar ###
+    # All progress bar settings now live in [global]
+    progress_bar = true
+    progress_bar_height = 8
+    progress_bar_frame_width = 1
+    progress_bar_min_width = 150
+    progress_bar_max_width = 300
+    # Note: Progress bar colors are inherited from the urgency level's
+    # 'foreground' and 'frame_color' settings.
+
+    ### Shortcuts ###
+    # Shortcuts are now defined in [global]
+
+    # Close notification
+    close = ctrl+space
+
+    # Close all notifications
+    close_all = ctrl+shift+space
+
+    # View notification history
+    history = ctrl+grave
+
+    # Context menu
+    context = ctrl+shift+period
+
+### Urgency Levels ###
+# Based on a "Gruvbox" dark theme
+# BG:   #282828
+# FG:   #EBDBB2
+# Red:  #CC241D
+# Blue: #458588
+# Grey: #928374
+# Muted BG: #3C3836
+# Muted Frame: #504945
+
+[urgency_low]
+    # Low urgency notifications (e.g., new song)
+    background = "#282828"
+    foreground = "#928374"
+    frame_color = "#504945"
+    timeout = 4
+    # icon = "/path/to/icon"
+
+[urgency_normal]
+    # Normal urgency notifications (e.g., new message)
+    background = "#282828"
+    foreground = "#EBDBB2"
+    frame_color = "#458588"
+    timeout = 8
+
+[urgency_critical]
+    # Critical urgency notifications (e.g., low battery)
+    background = "#282828"
+    foreground = "#CC241D"
+    frame_color = "#CC241D"
+    timeout = 0  # Stays until dismissed
+    # Font setting removed from here as it's global-only

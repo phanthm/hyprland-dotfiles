@@ -1,0 +1,5 @@
+! Load pywal colors (for apps that use *.background, etc.)
+#include ".cache/wal/colors.Xresources"
+
+! Load pywal-generated nsxiv config (must be after the main colors)
+#include ".cache/wal/nsxiv.Xresources"
