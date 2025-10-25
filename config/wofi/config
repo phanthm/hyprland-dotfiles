@@ -1,15 +1,34 @@
+# ===================================
+# Wofi Configuration
+# ===================================
+# Be sure to run wofi with the mode you want, e.g., wofi --show drun
+
 # -- General --
+mode=drun
+allow_images=true
+image_size=30
+prompt= Search
+columns=1
 width=550
 height=450
-prompt=Search Apps...
-style=./style.css
-
-# -- Appearance --
+no_actions=true
+monitor=eDP-1
 location=center
-allow_images=true
-hide_scroll=true
-show_all=true
-
-# -- Behavior --
+colors=colors
+filter_rate=100
+allow_markup=true
+halign=fill
+orientation=vertical
+content_halign=fill
+matching=contains
 insensitive=true
+term=kitty
 parse_search=true
+allow_markup=true
+single_click=false
+line_wrap=char
+key_down=Tab
+key_expand=Right
+key_forward=Down
+sort_order=alphabetical
+loop=true

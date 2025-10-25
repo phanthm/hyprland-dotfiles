@@ -37,7 +37,13 @@ wal -i "$CHOICE"
 # reload your X server's resources for nsxiv
 xrdb -merge ~/.Xresources
 
-# 7. Reload waybar
+# link dunst template to config
+ln -s ~/.cache/wal/dunstrc ~/.config/dunst/dunstrc
+
+pkill -x dunst
+dunst &
+
+# Reload waybar
 if pgrep -x "waybar" > /dev/null; then
     pkill -SIGUSR2 waybar
 else

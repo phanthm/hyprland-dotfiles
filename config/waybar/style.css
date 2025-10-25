@@ -80,7 +80,7 @@ window#waybar {
 }
 
 #backlight {
-    color: #a6e3a1;
+    color: #eba0ac;
 }
 
 #battery {
@@ -105,7 +105,7 @@ window#waybar {
 }
 
 #pulseaudio {
-    color: #89b4fa;
+    color: #cba6f7;
 }
 
 #pulseaudio.muted {
@@ -113,7 +113,7 @@ window#waybar {
 }
 
 #network {
-    color: #f5c2e7;
+    color: #93c2ea;
     font-size: 12px;
 }
 
@@ -126,7 +126,7 @@ window#waybar {
 }
 
 #memory {
-    color: #b4befe;
+    color: #c4befe;
 }
 
 #tray {
