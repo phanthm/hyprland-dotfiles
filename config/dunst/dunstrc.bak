@@ -35,7 +35,7 @@
     corner_radius = 5
 
     # Frame and separator settings
-    frame_width = 3
+    frame_width = 5
     separator_height = 5
 
     # Padding
@@ -131,22 +131,26 @@
     # Context menu
     context = ctrl+shift+period
 
-    frame_color = "{color1}"
-    separator_color = "{color8}"
-    highlight = "{color2}"
 
 [urgency_low]
-    background = "{color0}"
-    foreground = "{color7}"
+    # Low urgency notifications (e.g., new song)
+    background = "#282828"
+    foreground = "#928374"
+    frame_color = "#504945"
     timeout = 4
+    # icon = "/path/to/icon"
 
 [urgency_normal]
-    background = "{color0}"
-    foreground = "{color7}"
-    timeout = 6
+    # Normal urgency notifications (e.g., new message)
+    background = "#282828"
+    foreground = "#EBDBB2"
+    frame_color = "#458588"
+    timeout = 8
 
 [urgency_critical]
-    background = "{color1}"
-    foreground = "{color15}"
-    frame_color = "{color1}"
-    timeout = 0
+    # Critical urgency notifications (e.g., low battery)
+    background = "#282828"
+    foreground = "#CC241D"
+    frame_color = "#CC241D"
+    timeout = 0  # Stays until dismissed
+    # Font setting removed from here as it's global-only

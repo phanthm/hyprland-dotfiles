@@ -1,7 +1,7 @@
 #!/bin/bash
 
 FOLDER="/home/phanthm/Pictures/Wallpapers"
-HYPRPAPER_CONFIG="/home/phanthm/.config/hypr/hyprpaper.conf"
+ACTIVE_WALLPAPER="/home/phanthm/Pictures/wall"
 
 CHOICE=$(nsxiv -otb "$FOLDER")
 
@@ -12,8 +12,7 @@ else
     echo "Wallpaper Selected: $CHOICE"
 fi
 
-# Get the OLD wallpaper path from the config *before* we overwrite it
-OLD_WALLPAPER=$(grep '^preload[[:space:]]*=' "$HYPRPAPER_CONFIG" | awk -F'=' '{print $2}' | xargs)
+cp "$CHOICE" "$ACTIVE_WALLPAPER"
 
 if ! pgrep -x "hyprpaper" > /dev/null; then
     echo "hyprpaper not running, starting it..."
@@ -25,16 +24,12 @@ fi
 hyprctl hyprpaper preload "$CHOICE"
 hyprctl hyprpaper wallpaper "eDP-1,$CHOICE"
 
-# Unload the OLD wallpaper from memory
-# We only do this if the OLD_WALLPAPER path exists and is different from the new one.
-if [ -n "$OLD_WALLPAPER" ] && [ "$OLD_WALLPAPER" != "$CHOICE" ]; then
-    echo "Unloading old wallpaper: $OLD_WALLPAPER"
-    hyprctl hyprpaper unload "$OLD_WALLPAPER"
-fi
+# unload inactive wallpapers
+hyprctl hyprpaper unload all
 
 wal -i "$CHOICE"
 
-# reload your X server's resources for nsxiv
+# reload X server's resources for nsxiv
 xrdb -merge ~/.Xresources
 
 # link dunst template to config
@@ -49,8 +44,3 @@ if pgrep -x "waybar" > /dev/null; then
 else
     waybar &
 fi
-
-# update the config file for the next session
-ESCAPED_CHOICE=$(printf '%s\n' "$CHOICE" | sed -e 's:[][\\/.^$*#&]:\\&:g')
-sed -i "s#^preload[[:space:]]*=.*#preload=$ESCAPED_CHOICE#" "$HYPRPAPER_CONFIG"
-sed -i "s#^wallpaper[[:space:]]*=.*#wallpaper=eDP-1,$ESCAPED_CHOICE#" "$HYPRPAPER_CONFIG"

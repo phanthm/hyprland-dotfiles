@@ -14,13 +14,12 @@
   ],
 
   "modules-right": [
-    "tray",
     "network",
     "cpu",
     "memory",
-    "backlight",
     "pulseaudio",
     "battery",
+    "tray",
     "custom/power"
   ],
 
@@ -34,33 +33,25 @@
     "tooltip": false,
     "on-click": "wofi --show drun"
   },
-  "tray": {
-    "icon-size": 12,
-    "spacing": 10
-  },
   "clock": {
-    "format": "{:%I:%M %p}",
-    "format-alt": "{:%a, %b %d}",
+    "format": "{:%I:%M %p | %a, %b %d}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
   },
   "cpu": {
-    "format": "󰘚 {usage}%",
+    "format": " {usage}%",
     "tooltip": true,
     "interval": 2,
     "on-click": "hyprctl dispatch exec \"[float;size 1200 800] kitty btop\""
   },
   "memory": {
-    "format": "󰍛 {}%",
+    "format": " {}%",
     "tooltip-format": "{used:0.1f}G/{total:0.1f}G",
     "interval": 2,
     "on-click": "hyprctl dispatch exec \"[float;size 1200 800] kitty btop\""
   },
   "network": {
-    "format-wifi": "<span line_height=\"0.7\">↑ {bandwidthUpBytes}\n↓ {bandwidthDownBytes}</span>",
-    "format-ethernet": "󰈀 Connected",
-    "format-linked": "{ifname} (No IP)",
-    "format-disconnected": "󰖪 Disconnected",
-    "tooltip-format-wifi": "󰖩 {essid} | {signalStrength}%",
+    "format": "<span line_height=\"0.7\">↑ {bandwidthUpBytes}\n↓ {bandwidthDownBytes}</span>",
+    "tooltip-format": "󰖩 {essid} | {signalStrength}%",
     "interval": 2
   },
   "backlight": {
@@ -84,16 +75,22 @@
   },
   "battery": {
     "states": {
-      "good": 85,
+      "good": 80,
       "warning": 30,
       "critical": 15
     },
     "format": "{icon} {capacity}%",
     "format-charging": "󰂄 {capacity}%",
     "format-plugged": "󰂄 {capacity}%",
-    "format-alt": "{icon} {time}",
     "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
-    "interval": 2
+    "interval": 2,
+    "menu": "on-click",
+    "menu-file": "$HOME/.config/waybar/power_profile_menu.xml",
+	"menu-actions": {
+		"power-saver": "tuned-adm profile powersave && notify-send -r 9981 'Power Profile Changed' 'Active profile set to Power Saver'",
+		"balanced": "tuned-adm profile balanced && notify-send -r 9981 'Power Profile Changed' 'Active profile set to Balanced'",
+		"performance": "tuned-adm profile throughput-performance && notify-send -r 9981 'Power Profile Changed' 'Active profile set to Performance'",
+	}
   },
   "custom/power": {
       "format": "󰐥",

@@ -7,7 +7,7 @@
 }
 
 window#waybar {
-    background-color: rgba(255, 255, 255, 0);
+    background: transparent;
     transition-property: background-color;
     transition-duration: 0.5s;
 }
@@ -63,14 +63,15 @@ window#waybar {
 }
 
 #workspaces button.active {
-    background-color: @color2;
+    color: @background;
+    background-color: @color1;
 }
 
 #workspaces button.urgent {
     background-color: @color1;
 }
 
-#workspaces button:not(.active):hover {
+#workspaces button:hover {
     background-color: @foreground;
     color: @background;
 }
@@ -126,7 +127,7 @@ window#waybar {
 }
 
 #memory {
-    color: #c4befe;
+    color: #a4fefe;
 }
 
 #tray {
@@ -153,4 +154,28 @@ tooltip {
 
 tooltip label {
     color: @foreground;
+}
+
+menu {
+    border-radius: 5px;
+    background: @background;
+    color: @foreground;
+}
+
+menuitem {
+    border-radius: 5px;
+}
+
+menuitem:hover {
+    background-color: @color1;
+    color: @background;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #eb4d4b;
 }
