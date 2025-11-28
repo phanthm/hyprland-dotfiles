@@ -1,0 +1,26 @@
+@import url("colors.css");
+
+/* Sidebar Container */
+.nautilus-window .navigation-sidebar,
+.nautilus-window .top-bar {
+    background-color: alpha(@dialog_bg_color, 0.8);
+    color: @window_fg_color;
+}
+
+/* Sidebar Rows (Items) */
+.nautilus-window .navigation-sidebar row {
+    color: @window_fg_color;
+}
+
+/* Selected Item in Sidebar */
+.nautilus-window .navigation-sidebar row:selected {
+    background-color: @accent_bg_color;
+    color: @accent_fg_color;
+}
+
+/* Hover State */
+.nautilus-window .navigation-sidebar row:hover {
+    background-color: alpha(@accent_bg_color, 0.3);
+    color: @window_fg_color;
+}
+

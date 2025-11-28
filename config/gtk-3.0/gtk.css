@@ -1,0 +1,43 @@
+@import url("/home/phanthm/.cache/wal/colors-waybar.css");
+
+/* -------------------------
+ * Thunar Specific Styling
+ * ------------------------- */
+
+/* Main Window Background */
+.thunar {
+    background-color: @background;
+    color: @foreground;
+}
+
+/* Sidebar (Tree View) */
+.thunar .sidebar {
+    background-color: @background;
+    color: @foreground;
+    border-right: 1px solid @color1;
+}
+
+/* Main File View */
+.thunar .view {
+    background-color: @background;
+    color: @foreground;
+}
+
+/* Selected Items (Highlight) */
+.thunar .view:selected,
+.thunar .sidebar:selected {
+    background-color: @color2;
+    color: @background;
+}
+
+/* Top Toolbar */
+.thunar toolbar {
+    background-color: @background;
+    color: @foreground;
+    border-bottom: 1px solid @color1;
+}
+
+/* Scrollbars (Optional - makes them blend in) */
+scrollbar slider {
+    background-color: @color1;
+}
