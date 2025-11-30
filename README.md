@@ -6,7 +6,7 @@
 
 ### **Installation**
 
-**1. Clone**
+**Clone**
 ```bash
 git clone https://github.com/phanthm/hyprland-dotfiles.git && cd hyprland-dotfiles
 ```
@@ -32,4 +32,10 @@ Link the generated colors/config:
 ln -sf ~/.cache/wal/dunstrc ~/.config/dunst/dunstrc
 ln -sf ~/.cache/wal/gtk4.css ~/.config/gtk-4.0/colors.css
 ln -sf ~/.cache/wal/colors-hyprland.conf ~/.config/hypr/colors.conf
+```
+
+**NOTE**: Before compiling nsxiv, add these lines to the config.h file in the keys[] array to select the wallpaper using Enter and exit with Esc:
+```
+{ 0,            XK_Return,        g_pick_quit,          0 },
+{ 0,            XK_Escape,        g_quit,               0 },
 ```
