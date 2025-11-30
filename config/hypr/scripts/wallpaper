@@ -1,21 +1,19 @@
 #!/bin/bash
 
-FOLDER="/home/phanthm/Pictures/Wallpapers"
-ACTIVE_WALLPAPER="/home/phanthm/Pictures/wall"
+FOLDER="$HOME/Pictures/Wallpapers"
+ACTIVE_WALLPAPER="$HOME/Pictures/wall"
 
+# select and copy the wallpaper
 CHOICE=$(nsxiv -otb "$FOLDER")
-
 if [ -z "$CHOICE" ]; then
-    echo "No wallpaper selected. Exiting."
     exit 0
-else
-    echo "Wallpaper Selected: $CHOICE"
-fi
-
 cp "$CHOICE" "$ACTIVE_WALLPAPER"
 
+# generate pywal colors
+wal -i "$ACTIVE_WALLPAPER"
+
+#make sure hyprpaper is running
 if ! pgrep -x "hyprpaper" > /dev/null; then
-    echo "hyprpaper not running, starting it..."
     hyprpaper &
     sleep 0.5
 fi
@@ -24,10 +22,12 @@ fi
 hyprctl hyprpaper preload "$CHOICE"
 hyprctl hyprpaper wallpaper "eDP-1,$CHOICE"
 
+# Reload waybar
+pkill -SIGUSR2 waybar
+waybar &
+
 # unload inactive wallpapers
 hyprctl hyprpaper unload all
-
-wal -i "$CHOICE"
 
 # reload X server's resources for nsxiv
 xrdb -merge ~/.Xresources
@@ -35,12 +35,6 @@ xrdb -merge ~/.Xresources
 # link dunst template to config
 ln -s ~/.cache/wal/dunstrc ~/.config/dunst/dunstrc
 
+# reload dunst
 pkill -x dunst
 dunst &
-
-# Reload waybar
-if pgrep -x "waybar" > /dev/null; then
-    pkill -SIGUSR2 waybar
-else
-    waybar &
-fi

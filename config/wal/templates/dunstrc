@@ -21,7 +21,7 @@
     # Width of the notification window
     width = 340
 
-    # Notification height (new syntax)
+    # Notification height
     # (0, X) means dynamic height with a max of X.
     # (X, X) would mean a fixed height of X.
     height = (0, 200)
@@ -46,8 +46,7 @@
     transparency = 20
 
     ### Text ###
-    # Font. Using a Nerd Font is highly recommended for icon glyphs.
-    font = JetBrainsMono Nerd Font 10
+    font = JetBrains Mono 10
 
     # Text alignment (left, center, right)
     alignment = left
@@ -71,7 +70,7 @@
     max_icon_size = 32
 
     # Path to default icons
-    icon_path = /home/phanthm/.local/share/icons/dunst
+    icon_path = ~/.local/share/icons/dunst
 
     ### History ###
     # Show how many notifications are hidden

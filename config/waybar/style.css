@@ -1,7 +1,7 @@
-@import url("/home/phanthm/.cache/wal/colors-waybar.css");
+@import url("../../.cache/wal/colors-waybar.css");
 
 * {
-    font-family: "JetBrainsMono Nerd Font", FontAwesome, sans-serif;
+    font-family: "JetBrains Mono", FontAwesome, sans-serif;
     font-size: 13px;
     font-weight: bold;
 }
